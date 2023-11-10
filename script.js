@@ -9,8 +9,19 @@ button.addEventListener ("click",function(){
 })
 
 function onSuccess (position){
+    button.innerText = 'Detecting Location...'
     let {latitude, longitude} = position.coords
-    console.log(latitude, longitude)
+    fetch (`https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=cf0dc14f31ee426696058a39d5812a46`)
+        .then ((res)=>{
+            return res.json()
+        })
+        .then((result)=>{
+            let Location = result.results[0].formatted
+
+            
+
+            button.innerText = Location;
+        })
 }
 
 function onError (error){
