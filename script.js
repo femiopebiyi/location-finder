@@ -9,7 +9,7 @@ button.addEventListener ("click",function(){
 })
 
 function onSuccess (position){
-    button.innerText = 'new location....'
+    button.innerText = 'new location... ..'
     let {latitude, longitude} = position.coords
     fetch (`https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=cf0dc14f31ee426696058a39d5812a46`)
         .then ((res)=>{
